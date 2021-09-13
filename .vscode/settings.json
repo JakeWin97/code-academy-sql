@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "tai.db.elephantsql.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "code-academy-week3",
+            "database": "pmzvdzqn",
+            "username": "pmzvdzqn",
+            "password": "26F-CgkIoKL1jybB75HR0eqZqvmNYyIz"
+        }
+    ]
+}

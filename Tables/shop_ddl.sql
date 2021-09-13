@@ -1,10 +1,10 @@
 -- @block create schema 
-CREATE SCHEMA $schema_name;
+CREATE SCHEMA CodeAcademy;
 
 
 -- @block customer definition
 
-CREATE TABLE $schema_name.customer (
+CREATE TABLE CodeAcademy.customer (
 	customer_id INTEGER,
 	customer_name TEXT,
 	email TEXT,
@@ -15,7 +15,7 @@ CREATE TABLE $schema_name.customer (
 
 -- @block "order" definition
 
-CREATE TABLE $schema_name."order" (
+CREATE TABLE CodeAcademy."order" (
 	order_id INTEGER,
 	customer_id INTEGER,
 	order_date TEXT,
@@ -25,7 +25,7 @@ CREATE TABLE $schema_name."order" (
 
 -- @block order_line definition
 
-CREATE TABLE $schema_name.order_line (
+CREATE TABLE CodeAcademy.order_line (
 	order_line_id INTEGER,
 	order_id INTEGER,
 	product_id INTEGER,
@@ -34,14 +34,14 @@ CREATE TABLE $schema_name.order_line (
 
 -- @block order_status definition
 
-CREATE TABLE $schema_name.order_status (
+CREATE TABLE CodeAcademy.order_status (
 	order_status_id INTEGER,
 	status_name TEXT
 );
 
 -- @block product definition
 
-CREATE TABLE $schema_name.product (
+CREATE TABLE CodeAcademy.product (
 	product_id INTEGER,
 	product_name TEXT,
 	selling_price REAL,
