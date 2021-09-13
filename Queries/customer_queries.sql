@@ -109,3 +109,27 @@ ELSE sum(total_amount) END total_spend
 FROM CodeAcademy.customer C
 left join CodeAcademy.order o ON c.customer_id = o.customer_id
 GROUP BY customer_name ORDER BY SUM(total_amount) ASC
+
+
+--- INDIVIDUAl TASKS
+
+-- @block total_amount per month
+SELECT LEFT(order_date::text,7), SUM(total_amount)
+FROM CodeAcademy.order
+GROUP BY LEFT(order_date::text,7)
+ORDER BY SUM(total_amount) DESC;
+
+-- @block total order amount by month and product
+SELECT LEFT(C.order_date::text,7) year_month, 
+SUM(C.total_amount), B.product_name
+FROM CodeAcademy.order_line A
+INNER JOIN CodeAcademy.product B ON A.product_id = B.product_id
+INNER JOIN CodeAcademy.order C ON 
+A.order_id = C.order_id GROUP BY year_month, B.product_name
+
+-- @block customers with undispatched parcels
+SELECT A.customer_name, B.order_date, B.total_amount
+FROM CodeAcademy.customer A
+INNER JOIN CodeAcademy.order B
+    ON B.customer_id = A.customer_id
+WHERE B.order_status_id=2;
