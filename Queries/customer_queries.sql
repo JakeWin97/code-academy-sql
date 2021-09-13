@@ -100,3 +100,12 @@ LEFT JOIN CodeAcademy.order B
     ON A.customer_id = B.customer_id
 GROUP BY A.customer_name
 ORDER BY SUM(B.total_amount) DESC;
+
+-- @block total spend per customer nulls to zero
+SELECT customer_name,
+CASE
+WHEN sum(total_amount) IS NULL THEN 0
+ELSE sum(total_amount) END total_spend
+FROM CodeAcademy.customer C
+left join CodeAcademy.order o ON c.customer_id = o.customer_id
+GROUP BY customer_name ORDER BY SUM(total_amount) ASC
