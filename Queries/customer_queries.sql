@@ -133,3 +133,36 @@ FROM CodeAcademy.customer A
 INNER JOIN CodeAcademy.order B
     ON B.customer_id = A.customer_id
 WHERE B.order_status_id=2;
+
+-- TREND ANALYSIS
+
+-- @block How does spending vary between cities?
+SELECT A.city, SUM(B.total_amount)
+FROM CodeAcademy.customer A
+    INNER JOIN CodeAcademy.order B
+        ON A.customer_id = B.customer_id
+GROUP BY A.city
+ORDER BY SUM(B.total_amount) DESC;
+
+
+-- @block how have the sales of sandals changed over time?
+SELECT LEFT(A.order_date::text,7), SUM(A.total_amount)
+FROM CodeAcademy.order A
+    INNER JOIN CodeAcademy.order_line C
+        ON C.order_id = A.order_id
+    INNER JOIN CodeAcademy.product D
+        ON D.product_id = C.product_id
+WHERE D.product_id=1
+GROUP BY LEFT(A.order_date::text,7)
+ORDER BY LEFT(A.order_date::text,7) ASC;
+
+-- @block how have the sales of sweatshirts changed over time?
+SELECT LEFT(A.order_date::text,7), SUM(A.total_amount)
+FROM CodeAcademy.order A
+    INNER JOIN CodeAcademy.order_line C
+        ON C.order_id = A.order_id
+    INNER JOIN CodeAcademy.product D
+        ON D.product_id = C.product_id
+WHERE D.product_id=10
+GROUP BY LEFT(A.order_date::text,7)
+ORDER BY LEFT(A.order_date::text,7) ASC;
