@@ -22,4 +22,10 @@ INSERT INTO CodeAcademy.product (product_name,selling_price,category,img) VALUES
      ('Bacon', 1.25, 3, '/images/products/meat/bacon.jpg'),
      ('Sausages', 1.50, 3, '/images/products/meat/sausages.jpg'),
 
-     ('Corn Flakes', 2, 4, '/images/products/cereal/corn_flakes.jpg');
+     ('Corn Flakes', 2, 4, '/images/products/cereal/corn_flakes.jpg'),
+
+     ('Toilet Roll', 2.50, 5, '/images/products/bathroom/toilet_roll.jpg'),
+     ('Toothpaste', 1.25, 5, '/images/products/bathroom/toothpaste.jpg'),
+     ('Mouthwash', 1.20, 5, '/images/products/bathroom/mouthwash.jpg'),
+     ('Soap', 0.98, 5, '/images/products/bathroom/soap.jpg'),
+     ('Shampoo', 2, 5, '/images/products/bathroom/shampoo.jpg');
